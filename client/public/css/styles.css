@@ -13,3 +13,19 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+/* Delete this after testing */
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form input {
+  width: 300px;
+  height: 60px;
+  font-size: 25px;
+  margin: 10px;
+}
+/* Delete this after testing */

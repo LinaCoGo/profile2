@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 
@@ -10,16 +11,18 @@ const db = mysql.createPool({
     database: 'CRUDDataBase'
 });
 
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.post('/login/insert', (req,res)=> {
+app.post('/api/insert', (req,res)=> {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
 
-    const sqlInsert = 'INSERT INTO users (name, email, password) VALUES (?,?,?)'
+    const sqlInsert = 'INSERT INTO users (name, email, password) VALUES (?,?,?)';
     db.query(sqlInsert,[name, email, password], (err, result)=> {
-        console.log(result);
+        console.log(err);
     })
 })
 
